@@ -484,3 +484,277 @@ car = {
 car.popitem()
 # { "brand": "Ford", "model": "Mustang" }
 ```
+---
+
+## 🌟 11. Classes/Objects | Introduction a l'oriente-objet
+
+### 📌 Declaration d'une classe (prototypage et referencement)
+```python
+class Car:
+    brand = "Toyota" # par defaut la marque sera toyota
+```
+
+### 📌 Instanciation, Creation
+```python
+car = Car() # instanciation de notre prototype
+print(car.brand) # afficher la marque de notre fameuse voiture creer
+```
+
+### 📌 Constructeur: def __init__(self,...):
+est la pour construire l'objet, de maniere individuel
+
+```python
+class Car:
+    id = 0 # par defaut c'est 0
+    brand = "Toyota" # par defaut la marque toyota
+
+    # Method, Function
+    def __init__(self, brand, id):
+        self.id = id
+        self.brand = brand
+        print('Creation de la voiture')
+
+    def setBrand(self, brand):
+        self.brand = brand
+```
+
+### 📌 Identite de l'objet: def __str__(self,...):
+```python
+class Car:
+    id = 0 # par defaut c'est 0
+    brand = "Toyota" # par defaut la marque toyota
+    km = 0
+
+    # Method, Function
+    def __init__(self, brand, id):
+        self.id = id
+        self.brand = brand
+        print('Creation de la voiture')
+
+    def __str__(self):
+        print(f"Je suis une voiture de type {self.brand} numero #{self.id}")
+
+    def drive(self,km):
+        self.km = self.km + km
+        print(f"Vous avez roulez {self.km}km.")
+    
+```
+
+### 📌Exercice
+### Creer une personne:
+    -  name
+    -  age
+    -  une fonction qui presente la personne
+    -  une fonction qui permet a la personne d'apprendre -> apprendre(self,study)
+        - on accumule les connaissance, ex:
+            zeev.apprend("Violon")
+            zeev.apprend("Piloter un avion")
+    -  une fonction qui affiche tout ce qu'elle a etudier
+            zeev.aAppris()  # Violon
+                            # Piloter un avion
+
+**Correction**
+```python
+class Person:
+
+    # functions
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.matters = []
+        print(f"{name} vient de naitre, mais il a quand meme {age} ans")
+
+    def greet(self):
+        print(f"Je m'appel {self.name}, et j'ai {self.age} ans.")
+
+    def learned(self, matter):
+        self.matters.append(matter)
+        print(f"{self.name} a appris {matter}")
+
+    def have_learned(self):
+        if len(self.matters) > 0:
+            for m in self.matters: # foreach
+                print(f"\t{m}")
+```
+
+```python
+# implementation
+zeev = Person("Zeev",30)
+zeev.greet()
+zeev.learned("HTML")
+zeev.learned("CSS")
+zeev.learned("Javascript")
+zeev.have_learned() # affiche tout ce qu'il a etudier
+```
+
+### 📌 Supprimer une propriete ou un objet
+
+```python
+del zeev.age # on libere de la memoire
+print(zeev.age) # age non defini
+```
+- On peut supprimer une instance
+  - petit rappel une instance c'est:
+    - ```python
+        dark_vador = Person("Dark Vador",30) # creer une instance
+    ```
+    -```python
+        del dark_vador # on supprime dark vador (merci luke)
+    ```
+
+### 📌 Les 3 principes en Oriente-Objet: L'encapsulation, l'heritage et le polymorphisme
+### 📌 Getter / Setter: encapsulation (sorte d'intermediaire)
+```python
+    class Person:
+        def __init__(self,name):
+            self.name = name
+        
+        def setName(self,name):
+            self.name = name
+
+        def getName(self):
+            return self.name
+
+# implementation
+dark_miaul = Person("Luke")
+print(dark_miaul.getName()) # Luke
+
+dark_miaul.setName("Dark Miaul")
+print(dark_miaul.getName()) # Dark Miaul
+```
+- use case: valider des donnees selon des criteres
+```python
+    class Person:
+        def __init__(self,name):
+            self.name = name
+        
+        def setName(self,name):
+            if len(name) < 9:
+                self.name = name
+            else:
+                print("ton nom a plus de 8 caractere, trop long!")
+
+        def getName(self):
+            return self.name
+
+# implementation
+dark_miaul = Person("Luke")
+print(dark_miaul.getName()) # Luke
+
+dark_miaul.setName("DarkMiaul") # affiche une erreur: 9 caracteres trop long
+dark_miaul.setName("DarkMiol") # affiche une erreur: 9 caracteres trop long
+print(dark_miaul.getName()) # DarkMiol
+```
+
+### 📌 Heritage
+L'heritage permet de partager les elements d'un ensemble dans un autre:
+- Une personne a un nom
+- Un etudiant est une personne, donc elle possedera un nom
+- On aura pas besoin de creer le nom il est automatiquement appeler sur la classe superieur
+
+```python
+class Person:
+    def __init__(self,name):
+        self.name = name
+    
+    def setName(self,name):
+        if len(name) < 9:
+            self.name = name
+        else:
+            print("ton nom a plus de 8 caractere, trop long!")
+
+    def getName(self):
+        return self.name
+
+
+class Student(Person):
+    pass
+```
+- autre maniere d'herite et d'avoir des propriete et fonctions qui ne sont pas dans la class Person:
+
+```python
+class Person:
+    def __init__(self,name):
+        self.name = name
+    
+    def setName(self,name):
+        if len(name) < 9:
+            self.name = name
+        else:
+            print("ton nom a plus de 8 caractere, trop long!")
+
+    def getName(self):
+        return self.name
+
+class Student(Person):
+    # la propriete school_name est defini et VISIBLE que sur l'objet Student. (pas la class PERSON 😡)
+
+    def __init__(self,name,age,school_name):
+        super().__init__(name,age)
+        self.school_name
+    
+    def get_school_name(self):
+        return self.school_name
+
+    def set_school_name(self, school_name):
+        self.school_name = school_name
+
+    def advantage(self):
+        print("Je suis une fonction qui n'existe pas dans l'ensemble(class) Person")
+```
+
+### 📌 Polymorphisme
+
+- un Vehicule:
+  - Bus
+  - Moto
+  - Voiture
+
+```python
+class Vehicle:
+	def __init__(self,wheels,motor,fuel):
+		self.wheels = wheels
+		self.motor = motor
+		self.fuel = fuel
+	def show(self):
+		print(f"vehicle:\nw:{self.wheels} \nm:{self.motor} \nf:{self.fuel}")
+	def drive(self):
+		print("Je roule en vehicle")
+
+class Bus(Vehicle):
+    def __init__(self, name, has_microphone):
+        self.has_microphone = has_microphone
+        super().__init__(8,"essence","super")
+        self.name = name
+        print(f"{self.name}: {self.wheels}")
+        
+class Moto(Vehicle):
+    def __init__(self,wheels,name,has_top_case):
+        self.has_top_case = has_top_case
+        super().__init__(wheels,"GP","95")
+        self.name = name
+        print(f"{self.name}: {self.wheels}")
+    def drive(self):
+        super().drive()
+        print("Je roule en moto")
+        
+
+class Car(Vehicle):
+    def __init__(self,name):
+        super().__init__(4,"battery","electric")
+        self.name = name
+        print(f"{self.name}: {self.wheels}")
+    def drive(self):
+        print("Je roule en voiture")
+        
+toyota = Car('Toyota')
+bus_magic = Bus('Le bus magique', True)
+moto = Moto(2,'Harley Davidson', True)
+
+for v in (toyota, bus_magic, moto):
+	v.show()
+	v.drive()
+```
+
+- lorsque l'enfant possede la methode drive(), on dit qu'elle override, (= elle n'execute pas la methode parente).
+
