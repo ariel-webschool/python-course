@@ -1,1141 +1,866 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome file</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__html"><hr>
-<p>title: “Cours Python”</p>
-<p>author: “Ariel”</p>
-<p>date: “2024-11-25”</p>
+    <head>
+        <title>Course Python</title>
+        <meta charset='utf-8'/>
+        <link rel="stylesheet" type="text/css" href="github-markdown.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                if (document.querySelector("script[type=\"math/tex; mode=display\"]") !== null) {
+                    var mathjax = document.createElement("script");
+                    mathjax.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
+                    document.head.appendChild(mathjax);
+                }
+                if (document.getElementsByTagName("code").length !== 0) {
+                    var highlight = document.createElement("script");
+                    var highlightcss = document.createElement("link");
+                    highlight.src = "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js";
+                    highlightcss.rel = "stylesheet";
+                    highlightcss.href = "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/github.min.css";
+                    highlight.onload = function() {hljs.initHighlighting();};
+                    document.head.appendChild(highlight);
+                    document.head.appendChild(highlightcss);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <article class="markdown-body">
+            <p><img src="image.png" alt="Image"></p>
+<h2 id="%F0%9F%8C%9F-table-des-mati%C3%A8res">🌟 Table des matières</h2>
+<ol>
+<li><a href="#-1-les-bases-des-fonctions-python">Les Bases des Fonctions Python</a></li><li><a href="#-2-conversion-des-types-casting">Conversion des types (Casting)</a></li><li><a href="#-3-variables">Variables</a></li><li><a href="#-4-commentaires">Commentaires</a></li><li><a href="#-5-conditions-ifelse">Conditions (IF/ELSE)</a></li><li><a href="#-6-exercices-pratiques">Exercices pratiques</a></li><li><a href="#-7-tableaux-listes">Tableaux (listes)</a></li><li><a href="#-8-tuples-listes-constantes">Tuples (listes constantes)</a></li><li><a href="#-9-sets-listes-sans-doublon">Sets (listes sans doublon)</a></li><li><a href="#-10-dictionaries-liste-clé--valeur">Dictionaries (liste clé : valeur)</a></li><li><a href="#-11-classesobjects--introduction-à-lorienté-objet">Classes/Objects | Introduction à l&#39;orienté-objet</a></li><li><a href="#-12-gestion-des-fichiers">Gestion des fichiers</a></li><li><a href="#-13-json-javascript-object-notation">JSON (JavaScript Object Notation)</a></li><li><a href="#-14-gestion-des-exceptions-avec-try-except">Gestion des Exceptions avec <code>try-except</code></a></li></ol>
 <hr>
-<h2 id="🌟-1.-les-bases-des-fonctions-python">🌟 1. Les Bases des Fonctions Python</h2>
-<h3 id="📌-affichage-et-interactions-utilisateur">📌 Affichage et interactions utilisateur</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, Python!"</span><span class="token punctuation">)</span> <span class="token comment"># Afficher un message</span>
-
+<h2 id="-1-les-bases-des-fonctions-python">🌟 1. Les Bases des Fonctions Python</h2>
+<h3 id="%F0%9F%93%8C-affichage-et-interactions-utilisateur">📌 Affichage et interactions utilisateur</h3>
+<pre><code class="lang-python">print(&quot;Hello, Python!&quot;) # Afficher un message
 </code></pre>
 <ul>
-<li><strong><code>print()</code></strong> : Sert à afficher des informations dans la console.</li>
-</ul>
-<pre class=" language-python"><code class="prism  language-python">
-nom <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Quel est ton nom ? "</span><span class="token punctuation">)</span> <span class="token comment"># Récupérer des données de l'utilisateur</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Bonjour, "</span> <span class="token operator">+</span> nom <span class="token operator">+</span> <span class="token string">" !"</span><span class="token punctuation">)</span>
-
+<li><strong><code>print()</code></strong> : Sert à afficher des informations dans la console.</li></ul>
+<pre><code class="lang-python">nom = input(&quot;Quel est ton nom ? &quot;)  # Récupérer des données de l&#39;utilisateur
+print(&quot;Bonjour, &quot; + nom + &quot; !&quot;)
 </code></pre>
 <ul>
-<li><strong><code>input()</code></strong> : Permet à l’utilisateur de saisir des données (toujours retournées sous forme de chaîne).</li>
-</ul>
-<h3 id="📌-vérification-du-type-dune-donnée">📌 Vérification du type d’une donnée</h3>
-<pre class=" language-python"><code class="prism  language-python">
-age <span class="token operator">=</span> <span class="token number">25</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># &lt;class 'int'&gt;</span>
-
+<li><strong><code>input()</code></strong> : Permet à l&#39;utilisateur de saisir des données (toujours retournées sous forme de chaîne).</li></ul>
+<h3 id="%F0%9F%93%8C-v%C3%A9rification-du-type-d-une-donn%C3%A9e">📌 Vérification du type d&#39;une donnée</h3>
+<pre><code class="lang-python">age = 25
+print(type(age))  # &lt;class &#39;int&#39;&gt;
 </code></pre>
 <ul>
-<li><strong><code>type()</code></strong> : Indique le type d’une variable (int, str, float, etc.).</li>
-</ul>
+<li><strong><code>type()</code></strong> : Indique le type d&#39;une variable (int, str, float, etc.).</li></ul>
 <hr>
-<h2 id="🌟-2.-conversion-des-types-casting">🌟 2. Conversion des types (Casting)</h2>
+<h2 id="-2-conversion-des-types-casting">🌟 2. Conversion des types (Casting)</h2>
 <p>Python permet de convertir les types grâce à des fonctions appelées <em>casting</em> :</p>
 <ul>
-<li>
-<p><strong><code>int()</code></strong> : Convertir en entier.</p>
-</li>
-<li>
-<p><strong><code>float()</code></strong> : Convertir en décimal.</p>
-</li>
-<li>
-<p><strong><code>str()</code></strong> : Convertir en chaîne de caractères.</p>
-</li>
-</ul>
-<h3 id="exemples-">Exemples :</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># Conversion de types</span>
+<li><strong><code>int()</code></strong> : Convertir en entier.  </li><li><strong><code>float()</code></strong> : Convertir en décimal.  </li><li><strong><code>str()</code></strong> : Convertir en chaîne de caractères.</li></ul>
+<h3 id="exemples">Exemples :</h3>
+<pre><code class="lang-python"># Conversion de types
+nombre = &quot;42&quot;
+print(int(nombre))  # Convertir une chaîne en entier
+print(float(nombre))  # Convertir une chaîne en nombre décimal
 
-nombre <span class="token operator">=</span> <span class="token string">"42"</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>nombre<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Convertir une chaîne en entier</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">(</span>nombre<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Convertir une chaîne en nombre décimal</span>
-
-  
-
-<span class="token comment"># Combinaison</span>
-
-age <span class="token operator">=</span> <span class="token number">25</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"J'ai "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ans."</span><span class="token punctuation">)</span> <span class="token comment"># Conversion pour concaténation</span>
-
+# Combinaison
+age = 25
+print(&quot;J&#39;ai &quot; + str(age) + &quot; ans.&quot;)  # Conversion pour concaténation
 </code></pre>
 <hr>
-<h2 id="🌟-3.-variables">🌟 3. Variables</h2>
-<h3 id="📌-règles-pour-nommer-une-variable-">📌 Règles pour nommer une variable :</h3>
+<h2 id="-3-variables">🌟 3. Variables</h2>
+<h3 id="%F0%9F%93%8C-r%C3%A8gles-pour-nommer-une-variable">📌 Règles pour nommer une variable :</h3>
 <ol>
-<li>
-<p>Doit commencer par une lettre ou un underscore (<code>_</code>).</p>
-</li>
-<li>
-<p>Peut contenir des chiffres, mais ne doit <strong>pas</strong> commencer par un chiffre.</p>
-</li>
-<li>
-<p>Doit être unique dans un programme.</p>
-</li>
-</ol>
-<h3 id="exemples--1">Exemples :</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># Déclaration de variables</span>
+<li>Doit commencer par une lettre ou un underscore (<code>_</code>).  </li><li>Peut contenir des chiffres, mais ne doit <strong>pas</strong> commencer par un chiffre.  </li><li>Doit être unique dans un programme.</li></ol>
+<h3 id="exemples">Exemples :</h3>
+<pre><code class="lang-python"># Déclaration de variables
+nom = &quot;Alice&quot;
+age = 30
+pi = 3.14
 
-nom <span class="token operator">=</span> <span class="token string">"Alice"</span>
-
-age <span class="token operator">=</span> <span class="token number">30</span>
-
-pi <span class="token operator">=</span> <span class="token number">3.14</span>
-
-  
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nom<span class="token punctuation">,</span> age<span class="token punctuation">,</span> pi<span class="token punctuation">)</span>
-
+print(nom, age, pi)
 </code></pre>
 <hr>
-<h2 id="🌟-4.-commentaires">🌟 4. Commentaires</h2>
+<h2 id="-4-commentaires">🌟 4. Commentaires</h2>
 <p>Les commentaires sont ignorés par Python mais utiles pour documenter ton code :</p>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># Ceci est un commentaire sur une seule ligne.</span>
+<pre><code class="lang-python"># Ceci est un commentaire sur une seule ligne.
 
-  
-
-<span class="token triple-quoted-string string">"""
-
+&quot;&quot;&quot;
 Ceci est un commentaire
-
 multiligne.
-
-"""</span>
-
+&quot;&quot;&quot;
 </code></pre>
 <hr>
-<h2 id="🌟-5.-conditions-ifelse">🌟 5. Conditions (IF/ELSE)</h2>
-<h3 id="📌-structure-">📌 Structure :</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">if</span> condition<span class="token punctuation">:</span>
-
-<span class="token comment"># Bloc de code si la condition est vraie</span>
-
-<span class="token keyword">elif</span> autre_condition<span class="token punctuation">:</span>
-
-<span class="token comment"># Bloc si l'autre condition est vraie</span>
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token comment"># Bloc si aucune condition n'est vraie</span>
-
+<h2 id="-5-conditions-if-else">🌟 5. Conditions (IF/ELSE)</h2>
+<h3 id="%F0%9F%93%8C-structure">📌 Structure :</h3>
+<pre><code class="lang-python">if condition:
+    # Bloc de code si la condition est vraie
+elif autre_condition:
+    # Bloc si l&#39;autre condition est vraie
+else:
+    # Bloc si aucune condition n&#39;est vraie
 </code></pre>
-<h3 id="exemple-">Exemple :</h3>
-<pre class=" language-python"><code class="prism  language-python">
-age <span class="token operator">=</span> <span class="token number">20</span>
+<h3 id="exemple">Exemple :</h3>
+<pre><code class="lang-python">age = 20
 
-  
-
-<span class="token keyword">if</span> age <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Vous êtes senior."</span><span class="token punctuation">)</span>
-
-<span class="token keyword">elif</span> age <span class="token operator">&gt;=</span> <span class="token number">18</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Vous êtes adulte."</span><span class="token punctuation">)</span>
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Vous êtes mineur."</span><span class="token punctuation">)</span>
-
+if age &gt;= 60:
+    print(&quot;Vous êtes senior.&quot;)
+elif age &gt;= 18:
+    print(&quot;Vous êtes adulte.&quot;)
+else:
+    print(&quot;Vous êtes mineur.&quot;)
 </code></pre>
 <hr>
-<h2 id="🌟-6.-exercices-pratiques">🌟 6. Exercices pratiques</h2>
-<h3 id="🔹-exercice-1--présentation">🔹 <strong>Exercice 1 : Présentation</strong></h3>
-<p>Écrivez un programme qui demande à l’utilisateur :</p>
+<h2 id="-6-exercices-pratiques">🌟 6. Exercices pratiques</h2>
+<h3 id="%F0%9F%94%B9-exercice-1-pr%C3%A9sentation">🔹 <strong>Exercice 1 : Présentation</strong></h3>
+<p>Écrivez un programme qui demande à l&#39;utilisateur :</p>
 <ul>
-<li>
-<p>Son nom</p>
-</li>
-<li>
-<p>Son âge</p>
-</li>
-</ul>
+<li>Son nom</li><li>Son âge</li></ul>
 <p>Puis affiche : <code>Bonjour &lt;nom&gt;, vous avez &lt;âge&gt; ans.</code></p>
+<details>
+<summary>Solution</summary>
 
-Solution
-<pre class=" language-python"><code class="prism  language-python">
-nom <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Quel est votre nom ? "</span><span class="token punctuation">)</span>
-
-age <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Quel est votre âge ? "</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Bonjour "</span> <span class="token operator">+</span> nom <span class="token operator">+</span> <span class="token string">", vous avez "</span> <span class="token operator">+</span> age <span class="token operator">+</span> <span class="token string">" ans."</span><span class="token punctuation">)</span>
-
-</code></pre>
+```python
+nom = input("Quel est votre nom ? ")
+age = input("Quel est votre âge ? ")
+print("Bonjour " + nom + ", vous avez " + age + " ans.")
+```
+</details>
 
 <hr>
-<h3 id="🔹-exercice-2--accès-au-cinéma">🔹 <strong>Exercice 2 : Accès au cinéma</strong></h3>
-<p>Demandez à l’utilisateur son âge et dites-lui s’il peut regarder un film d’horreur (âge minimum : 13 ans). Si non, précisez combien d’années il doit attendre.</p>
+<h3 id="%F0%9F%94%B9-exercice-2-acc%C3%A8s-au-cin%C3%A9ma">🔹 <strong>Exercice 2 : Accès au cinéma</strong></h3>
+<p>Demandez à l&#39;utilisateur son âge et dites-lui s&#39;il peut regarder un film d&#39;horreur (âge minimum : 13 ans). Si non, précisez combien d&#39;années il doit attendre.</p>
 <p><strong>Solution</strong></p>
-<pre class=" language-python"><code class="prism  language-python">
-age <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Quel est votre âge ? "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre><code class="lang-python">age = int(input(&quot;Quel est votre âge ? &quot;))
 
-  
-
-<span class="token keyword">if</span> age <span class="token operator">&gt;=</span> <span class="token number">13</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Autorisé à voir le film."</span><span class="token punctuation">)</span>
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Accès interdit, il vous manque "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">13</span> <span class="token operator">-</span> age<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ans."</span><span class="token punctuation">)</span>
-
+if age &gt;= 13:
+    print(&quot;Autorisé à voir le film.&quot;)
+else:
+    print(&quot;Accès interdit, il vous manque &quot; + str(13 - age) + &quot; ans.&quot;)
 </code></pre>
 <hr>
-<h2 id="🌟-7.-tableaux-listes">🌟 7. Tableaux (listes)</h2>
-<p>Les tableaux permettent de stocker plusieurs valeurs dans une seule variable.</p>
-<p><strong>Exemple :</strong></p>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"pomme"</span><span class="token punctuation">,</span> <span class="token string">"banane"</span><span class="token punctuation">,</span> <span class="token string">"cerise"</span><span class="token punctuation">]</span>
+<h2 id="-7-tableaux-listes">🌟 7. Tableaux (listes)</h2>
+<p>Les tableaux permettent de stocker plusieurs valeurs dans une seule variable.<br><strong>Exemple :</strong></p>
+<pre><code class="lang-python">fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;]
 
-  
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># pomme</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Nombre d'éléments : 3</span>
-
+print(fruits[0])  # pomme
+print(len(fruits))  # Nombre d&#39;éléments : 3
 </code></pre>
-<h3 id="📌-obtenir-le-nombre-déléments-dans-une-liste">📌 Obtenir le nombre d’éléments dans une liste</h3>
-<pre class=" language-python"><code class="prism  language-python">
-nombres <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>nombres<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 3</span>
-
+<h3 id="%F0%9F%93%8C-obtenir-le-nombre-d-%C3%A9l%C3%A9ments-dans-une-liste">📌 Obtenir le nombre d&#39;éléments dans une liste</h3>
+<pre><code class="lang-python">nombres = [10, 20, 30]
+print(len(nombres))  # 3
 </code></pre>
-<h3 id="📌-changer-délément-dans-une-liste-existante">📌 Changer d’élément dans une liste existante:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"strawberry"</span>
-
+<h3 id="%F0%9F%93%8C-changer-d-%C3%A9l%C3%A9ment-dans-une-liste-existante">📌 Changer d&#39;élément dans une liste existante:</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
+fruits[0] = &quot;strawberry&quot;
 </code></pre>
-<h3 id="📌-remplacer-une-sous-liste-délément-par-une-autre-list">📌 Remplacer une sous liste d’élément par une autre list:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"strawberry"</span><span class="token punctuation">,</span><span class="token string">"grappe"</span><span class="token punctuation">]</span>
-
+<h3 id="%F0%9F%93%8C-remplacer-une-sous-liste-d-%C3%A9l%C3%A9ment-par-une-autre-list">📌 Remplacer une sous liste d&#39;élément par une autre list:</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
+fruits[0:2] = [&quot;strawberry&quot;,&quot;grappe&quot;]
 </code></pre>
-<h3 id="📌-insérer-un-élément-dans-une-liste-a-lindex-k">📌 Insérer un élément dans une liste a l’index-K:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
+<h3 id="%F0%9F%93%8C-ins%C3%A9rer-un-%C3%A9l%C3%A9ment-dans-une-liste-a-l-index-k">📌 Insérer un élément dans une liste a l&#39;index-K:</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
+fruits.insert(0,&quot;watermelon&quot;)
+print(fruits)
 
-fruits<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"watermelon"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-  
-
-<span class="token comment"># ["watermelon", "apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]</span>
-
+# [&quot;watermelon&quot;, &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
 </code></pre>
-<h3 id="📌-ajouter-un-élément-a-la-fin-dune-liste">📌 Ajouter un élément a la fin d’une liste:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
+<h3 id="%F0%9F%93%8C-ajouter-un-%C3%A9l%C3%A9ment-a-la-fin-d-une-liste">📌 Ajouter un élément a la fin d&#39;une liste:</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
+fruits.append(&quot;peach&quot;)
+print(fruits)
 
-fruits<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"peach"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-  
-
-<span class="token comment"># ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango","peach"]</span>
-
+# [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;,&quot;peach&quot;]
 </code></pre>
-<h3 id="📌-ajouter-et-concatener-une-liste-ajouter-une-autre-liste-dans-la-liste-actuelle">📌 Ajouter et concatener une liste, Ajouter une autre liste dans la liste actuelle:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">,</span> <span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'kiwi'</span><span class="token punctuation">,</span> <span class="token string">'melon'</span><span class="token punctuation">,</span> <span class="token string">'mango'</span><span class="token punctuation">,</span> <span class="token string">'peach'</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">.</span>extend<span class="token punctuation">(</span> <span class="token punctuation">[</span><span class="token string">"tomato"</span><span class="token punctuation">,</span><span class="token string">"avocado"</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># ['watermelon', 'strawberry', 'grappe', 'watermelon', 'cherry', 'orange', 'kiwi', 'melon', 'mango', 'peach', 'tomato', 'avocado']</span>
-
+<h3 id="%F0%9F%93%8C-ajouter-et-concatener-une-liste-ajouter-une-autre-liste-dans-la-liste-actuelle">📌 Ajouter et concatener une liste, Ajouter une autre liste dans la liste actuelle:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;, &#39;watermelon&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;kiwi&#39;, &#39;melon&#39;, &#39;mango&#39;, &#39;peach&#39;]
+fruits.extend( [&quot;tomato&quot;,&quot;avocado&quot;] )
+print(fruits)
+# [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;, &#39;watermelon&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;kiwi&#39;, &#39;melon&#39;, &#39;mango&#39;, &#39;peach&#39;, &#39;tomato&#39;, &#39;avocado&#39;]
 </code></pre>
-<h3 id="📌-supprimer-un-element-de-la-liste-actuelle-avec-sa-valeur">📌 Supprimer un element de la liste actuelle avec sa valeur:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"strawberry"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># ['watermelon', 'grappe']</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-un-element-de-la-liste-actuelle-avec-sa-valeur">📌 Supprimer un element de la liste actuelle avec sa valeur:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+fruits.remove(&quot;strawberry&quot;)
+print(fruits)
+# [&#39;watermelon&#39;, &#39;grappe&#39;]
 </code></pre>
-<h3 id="📌-supprimer-un-element-de-la-liste-actuelle-avec-sa-cle">📌 Supprimer un element de la liste actuelle avec sa cle:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># ['watermelon', 'grappe']</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-un-element-de-la-liste-actuelle-avec-sa-cle">📌 Supprimer un element de la liste actuelle avec sa cle:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+fruits.pop(1)
+print(fruits)
+# [&#39;watermelon&#39;, &#39;grappe&#39;]
 </code></pre>
 <p>alternative</p>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">del</span> fruits<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># ['watermelon', 'grappe']</span>
-
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+del fruits[1]
+print(fruits)
+# [&#39;watermelon&#39;, &#39;grappe&#39;]
 </code></pre>
-<h3 id="📌-supprimer-le-derniere-element-de-la-liste-actuelle">📌 Supprimer le derniere element de la liste actuelle:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># ['watermelon', 'strawberry']</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-le-derniere-element-de-la-liste-actuelle">📌 Supprimer le derniere element de la liste actuelle:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+fruits.pop()
+print(fruits)
+# [&#39;watermelon&#39;, &#39;strawberry&#39;]
 </code></pre>
-<h3 id="📌-supprimer-une-liste">📌 Supprimer une liste:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">del</span> fruits
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># Not Defined</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-une-liste">📌 Supprimer une liste:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+del fruits
+print(fruits)
+# Not Defined
 </code></pre>
-<h3 id="📌-vide-une-liste">📌 Vide une liste:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-fruits<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token comment"># result: []</span>
-
+<h3 id="%F0%9F%93%8C-vide-une-liste">📌 Vide une liste:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+fruits.clear()
+print(fruits)
+# result: []
 </code></pre>
-<h3 id="📌-boucler-sur-un-tableau-sur-chaque-valeur">📌 Boucler sur un tableau sur chaque valeur:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-<span class="token comment"># foreach</span>
-
-<span class="token keyword">for</span> fruit <span class="token keyword">in</span> fruits<span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Le fruit actuelle est le: "</span><span class="token operator">+</span>fruit<span class="token punctuation">)</span>
-
-<span class="token comment"># result: []</span>
-
+<h3 id="%F0%9F%93%8C-boucler-sur-un-tableau-sur-chaque-valeur">📌 Boucler sur un tableau sur chaque valeur:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+# foreach
+for fruit in fruits:
+    print(&quot;Le fruit actuelle est le: &quot;+fruit)
+# result: []
 </code></pre>
-<h3 id="📌-boucler-sur-un-tableau-a-partir-de-lindex">📌 Boucler sur un tableau a partir de l’index:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'watermelon'</span><span class="token punctuation">,</span> <span class="token string">'strawberry'</span><span class="token punctuation">,</span> <span class="token string">'grappe'</span><span class="token punctuation">]</span>
-
-<span class="token comment"># for</span>
-
-<span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Le fruit actuelle est le: "</span><span class="token operator">+</span>fruits<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment"># result: []</span>
-
+<h3 id="%F0%9F%93%8C-boucler-sur-un-tableau-a-partir-de-l-index">📌 Boucler sur un tableau a partir de l&#39;index:</h3>
+<pre><code class="lang-python">fruits = [&#39;watermelon&#39;, &#39;strawberry&#39;, &#39;grappe&#39;]
+# for
+for index in range(0,len(fruits)):
+    print(&quot;Le fruit actuelle est le: &quot;+fruits[index])
+# result: []
 </code></pre>
-<p>“salut” = [“s”,“a”,“l”,“u”,“t”]</p>
-<h3 id="📌-trier-un-tableau-numeric">📌 Trier un tableau numeric:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span>
-
-nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-
-<span class="token comment"># result: [3,6,6,7,9]</span>
-
+<p>&quot;salut&quot; = [&quot;s&quot;,&quot;a&quot;,&quot;l&quot;,&quot;u&quot;,&quot;t&quot;]</p>
+<h3 id="%F0%9F%93%8C-trier-un-tableau-numeric">📌 Trier un tableau numeric:</h3>
+<pre><code class="lang-python">nums = [9,6,3,6,7]
+nums.sort()
+print(nums)
+# result: [3,6,6,7,9]
 </code></pre>
-<h3 id="📌-recuperer-lindex-dun-élément-dans-une-liste">📌 Recuperer l’index d’un élément dans une liste</h3>
-<pre class=" language-python"><code class="prism  language-python">
-nombres <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nombres<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 1</span>
-
+<h3 id="%F0%9F%93%8C-recuperer-l-index-d-un-%C3%A9l%C3%A9ment-dans-une-liste">📌 Recuperer l&#39;index d&#39;un élément dans une liste</h3>
+<pre><code class="lang-python">nombres = [10, 20, 30]
+print(nombres.index(20))  # 1
 </code></pre>
-<h3 id="📌-copy-dune-liste-en-profondeur">📌 Copy d’une liste en profondeur</h3>
+<h3 id="%F0%9F%93%8C-copy-d-une-liste-en-profondeur">📌 Copy d&#39;une liste en profondeur</h3>
 <p>ERREUR A NE PAS FAIRE</p>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># un tableau qui pointe sur le meme tableau manipule les memes donnees</span>
-
-<span class="token comment"># manipuler (modifier un element, supprimer un element)</span>
-
-nombres <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span>
-
-nombres_2 <span class="token operator">=</span> nombres
-
-nombres_2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1000</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nombres<span class="token punctuation">)</span> <span class="token comment"># [1000, 20, 30]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nombres_2<span class="token punctuation">)</span> <span class="token comment"># [1000, 20, 30]</span>
-
+<pre><code class="lang-python"># un tableau qui pointe sur le meme tableau manipule les memes donnees
+# manipuler (modifier un element, supprimer un element)
+nombres = [10, 20, 30]
+nombres_2 = nombres
+nombres_2[0] = 1000
+print(nombres) # [1000, 20, 30]
+print(nombres_2) # [1000, 20, 30]
 </code></pre>
 <p>Voici comment faire une copie de tableau pour le manipuler sous une autre forme.</p>
-<pre class=" language-python"><code class="prism  language-python">
-nombres <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span>
-
-nombres_2 <span class="token operator">=</span> nombres<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-nombres_2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1000</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nombres<span class="token punctuation">)</span> <span class="token comment"># [10, 20, 30]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>nombres_2<span class="token punctuation">)</span> <span class="token comment"># [1000, 20, 30]</span>
-
+<pre><code class="lang-python">nombres = [10, 20, 30]
+nombres_2 = nombres.copy()
+nombres_2[0] = 1000
+print(nombres)  # [10, 20, 30]
+print(nombres_2)  # [1000, 20, 30]
 </code></pre>
-<h3 id="📌-extraire-une-liste-délément-a-partir-dune-autre-liste">📌 Extraire une liste d’élément a partir d’une autre liste</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
+<h3 id="%F0%9F%93%8C-extraire-une-liste-d-%C3%A9l%C3%A9ment-a-partir-d-une-autre-liste">📌 Extraire une liste d&#39;élément a partir d&#39;une autre liste</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
 
-  
-
-nouvelle_list_1 <span class="token operator">=</span> fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># ["cherry", "orange", "kiwi"]</span>
-
-nouvelle_list_2 <span class="token operator">=</span> fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment"># ["cherry", "orange", "kiwi", "melon", "mango"]</span>
-
-nouvelle_list_3 <span class="token operator">=</span> fruits<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment"># ["apple", "banana"]</span>
-
+nouvelle_list_1 = fruits[2:5] # [&quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;]
+nouvelle_list_2 = fruits[2:] # [&quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
+nouvelle_list_3 = fruits[:2] # [&quot;apple&quot;, &quot;banana&quot;]
 </code></pre>
-<h3 id="📌-verifier-si-un-élément-existe-dans-la-liste">📌 Verifier si un élément existe dans la liste:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
+<h3 id="%F0%9F%93%8C-verifier-si-un-%C3%A9l%C3%A9ment-existe-dans-la-liste">📌 Verifier si un élément existe dans la liste:</h3>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
 
-  
-
-<span class="token keyword">if</span>  <span class="token string">"apple"</span>  <span class="token keyword">in</span> fruits<span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Ce fruit existe dans notre liste"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Ce fruit n'existe pas dans notre liste"</span><span class="token punctuation">)</span>
-
+if &quot;apple&quot; in fruits:
+    print(&quot;Ce fruit existe dans notre liste&quot;)
+else:
+    print(&quot;Ce fruit n&#39;existe pas dans notre liste&quot;)
 </code></pre>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">,</span> <span class="token string">"melon"</span><span class="token punctuation">,</span> <span class="token string">"mango"</span><span class="token punctuation">]</span>
+<pre><code class="lang-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;melon&quot;, &quot;mango&quot;]
 
-  
-
-user_input <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Which fruits is in the list? "</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> user_input<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">in</span> fruits<span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Ce fruit existe dans notre liste"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Ce fruit n'existe pas dans notre liste"</span><span class="token punctuation">)</span>
-
+user_input = input(&quot;Which fruits is in the list? &quot;)
+if user_input.lower() in fruits:
+    print(&quot;Ce fruit existe dans notre liste&quot;)
+else:
+    print(&quot;Ce fruit n&#39;existe pas dans notre liste&quot;)
 </code></pre>
-<h3 id="📌-itération-dans-une-liste-">📌 Itération dans une liste :</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">for</span> fruit <span class="token keyword">in</span> fruits<span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span>
-
+<h3 id="%F0%9F%93%8C-it%C3%A9ration-dans-une-liste">📌 Itération dans une liste :</h3>
+<pre><code class="lang-python">for fruit in fruits:
+    print(fruit)
 </code></pre>
-<h3 id="📌-recap-toutes-les-fonctions-possible-sur-une-liste">📌 Recap: toutes les fonctions possible sur une liste:</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token operator">**</span>Method<span class="token operator">**</span> <span class="token operator">**</span>Description<span class="token operator">**</span>
-
-append<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Ajout element a la fin de la liste</span>
-
-clear<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Vide la liste</span>
-
-copy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Retourne une copy de la liste</span>
-
-count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Recupere le nombre de fois ou un element est present dans le tableau</span>
-
-extend<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Combine deux liste</span>
-
-index<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Retourne l'index d'une valeur</span>
-
-insert<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Ajoute un element a la position souhaite</span>
-
-pop<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Supprime un element a une position</span>
-
-remove<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Supprime un element qui matche la valeur</span>
-
-reverse<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Renverse l'ordre de la liste</span>
-
-sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Trie une liste, et la garde trier</span>
-
+<h3 id="%F0%9F%93%8C-recap-toutes-les-fonctions-possible-sur-une-liste">📌 Recap: toutes les fonctions possible sur une liste:</h3>
+<pre><code class="lang-python">**Method**    **Description**
+append()    # Ajout element a la fin de la liste
+clear()        # Vide la liste
+copy()        # Retourne une copy de la liste
+count()        # Recupere le nombre de fois ou un element est present dans le tableau
+extend()    # Combine deux liste
+index()        # Retourne l&#39;index d&#39;une valeur
+insert()    # Ajoute un element a la position souhaite
+pop()        # Supprime un element a une position
+remove()    # Supprime un element qui matche la valeur
+reverse()    # Renverse l&#39;ordre de la liste
+sort()        # Trie une liste, et la garde trier
 </code></pre>
 <hr>
-<h2 id="🌟-8.-tuples-listes-constantes">🌟 8. Tuples (listes constantes)</h2>
-<h3 id="📌-simple-declaration">📌 Simple declaration</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'banana'</span><span class="token punctuation">,</span><span class="token string">'melon'</span><span class="token punctuation">,</span><span class="token string">'watermelon'</span><span class="token punctuation">]</span>
-
-fruits_permanents <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span>fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment"># fruits_permanents est une variable de type list et constant =&gt; tuple (inalterable)</span>
-
+<h2 id="-8-tuples-listes-constantes">🌟 8. Tuples (listes constantes)</h2>
+<h3 id="%F0%9F%93%8C-simple-declaration">📌 Simple declaration</h3>
+<pre><code class="lang-python">fruits = [&#39;banana&#39;,&#39;melon&#39;,&#39;watermelon&#39;]
+fruits_permanents = tuple(fruits[0:2])
+# fruits_permanents est une variable de type list et constant =&gt; tuple (inalterable)
 </code></pre>
-<h3 id="📌-destructuring---destructuration">📌 Destructuring - Destructuration</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'banana'</span><span class="token punctuation">,</span><span class="token string">'melon'</span><span class="token punctuation">,</span><span class="token string">'watermelon'</span><span class="token punctuation">]</span>
+<h3 id="%F0%9F%93%8C-destructuring-destructuration">📌 Destructuring - Destructuration</h3>
+<pre><code class="lang-python">fruits = [&#39;banana&#39;,&#39;melon&#39;,&#39;watermelon&#39;]
+fruits_permanents = tuple(fruits[0:2])
+(banana, melon) = fruits_permanents
+print(banana) # banana
 
-fruits_permanents <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span>fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token punctuation">(</span>banana<span class="token punctuation">,</span> melon<span class="token punctuation">)</span> <span class="token operator">=</span> fruits_permanents
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>banana<span class="token punctuation">)</span> <span class="token comment"># banana</span>
-
-  
-
-<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">=</span> fruits_permanents
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment"># banana</span>
-
+(x, y) = fruits_permanents
+print(x) # banana
 </code></pre>
 <hr>
-<h2 id="🌟-9.-sets-listes-sans-doublon">🌟 9. Sets (listes sans doublon)</h2>
+<h2 id="-9-sets-listes-sans-doublon">🌟 9. Sets (listes sans doublon)</h2>
 <p>Cette structure de donnee ne permet pas les doublons.</p>
-<h3 id="📌-simple-declaration-1">📌 Simple declaration</h3>
-<pre class=" language-python"><code class="prism  language-python">
-fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'banana'</span><span class="token punctuation">,</span><span class="token string">'peach'</span><span class="token punctuation">,</span><span class="token string">'mango'</span><span class="token punctuation">,</span><span class="token string">'banana'</span><span class="token punctuation">]</span>
-
-fruits_once <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>fruits_once<span class="token punctuation">)</span> <span class="token comment"># ('banana','peach','mango')</span>
-
+<h3 id="%F0%9F%93%8C-simple-declaration">📌 Simple declaration</h3>
+<pre><code class="lang-python">fruits = [&#39;banana&#39;,&#39;peach&#39;,&#39;mango&#39;,&#39;banana&#39;]
+fruits_once = set(fruits)
+print(fruits_once) # (&#39;banana&#39;,&#39;peach&#39;,&#39;mango&#39;)
 </code></pre>
-<h3 id="📌-ajout">📌 Ajout</h3>
-<pre class=" language-python"><code class="prism  language-python">
-mon_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span>
-
-mon_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment"># Ajoute 4 au set</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>mon_set<span class="token punctuation">)</span> <span class="token comment"># {1, 2, 3, 4}</span>
-
+<h3 id="%F0%9F%93%8C-ajout">📌 Ajout</h3>
+<pre><code class="lang-python">mon_set = {1, 2, 3}
+mon_set.add(4)  # Ajoute 4 au set
+print(mon_set)  # {1, 2, 3, 4}
 </code></pre>
-<h3 id="📌-suppression">📌 Suppression</h3>
-<pre class=" language-python"><code class="prism  language-python">
-mon_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span>
-
-mon_set<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Supprime 2</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>mon_set<span class="token punctuation">)</span> <span class="token comment"># {1, 3}</span>
-
+<h3 id="%F0%9F%93%8C-suppression">📌 Suppression</h3>
+<pre><code class="lang-python">mon_set = {1, 2, 3}
+mon_set.remove(2)  # Supprime 2
+print(mon_set)  # {1, 3}
 </code></pre>
 <hr>
-<h2 id="🌟-10.-dictionary-liste-cle--valeur">🌟 10. Dictionary (liste cle : valeur)</h2>
-<h3 id="📌-simple-declaration-2">📌 Simple declaration</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># un tableau avec cle et valeur</span>
-
-car <span class="token operator">=</span> <span class="token punctuation">{</span>
-
-<span class="token string">"brand"</span><span class="token punctuation">:</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span>
-
-<span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span>
-
-<span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">1964</span>
-
-<span class="token punctuation">}</span>
-
-car <span class="token operator">=</span> <span class="token punctuation">{</span>year<span class="token punctuation">:</span> <span class="token number">1969</span><span class="token punctuation">}</span>
-
-car <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>year<span class="token punctuation">:</span><span class="token number">1969</span>
-
-<span class="token punctuation">)</span>
-
+<h2 id="-10-dictionary-liste-cle-valeur">🌟 10. Dictionary (liste cle : valeur)</h2>
+<h3 id="%F0%9F%93%8C-simple-declaration">📌 Simple declaration</h3>
+<pre><code class="lang-python"># un tableau avec cle et valeur
+car = {
+    &quot;brand&quot;: &quot;Ford&quot;,
+    &quot;model&quot;: &quot;Mustang&quot;,
+    &quot;year&quot;: 1964
+}
+car = {year: 1969}
+car = dict(year:1969
+)
 </code></pre>
-<h3 id="📌-acces-a-une-valeur-dictionnaire">📌 Acces a une valeur (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">print</span><span class="token punctuation">(</span>car<span class="token punctuation">[</span><span class="token string">'brand'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Ford</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'brand'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Ford</span>
-
+<h3 id="%F0%9F%93%8C-acces-a-une-valeur-dictionnaire">📌 Acces a une valeur (dictionnaire)</h3>
+<pre><code class="lang-python">print(car[&#39;brand&#39;]) # Ford
+print(car.get(&#39;brand&#39;)) # Ford
 </code></pre>
-<h3 id="📌-recuperer-la-liste-des-cles-dictionnaire">📌 Recuperer la liste des cles (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car <span class="token operator">=</span> <span class="token punctuation">{</span>
-
-<span class="token string">"brand"</span><span class="token punctuation">:</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span>
-
-<span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span>
-
-<span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">1964</span>
-
-<span class="token punctuation">}</span>
-
-k <span class="token operator">=</span> car<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token comment"># ['brand','model','year']</span>
-
+<h3 id="%F0%9F%93%8C-recuperer-la-liste-des-cles-dictionnaire">📌 Recuperer la liste des cles (dictionnaire)</h3>
+<pre><code class="lang-python">car = {
+    &quot;brand&quot;: &quot;Ford&quot;,
+    &quot;model&quot;: &quot;Mustang&quot;,
+    &quot;year&quot;: 1964
+}
+k = car.keys()
+print(k) # [&#39;brand&#39;,&#39;model&#39;,&#39;year&#39;]
 </code></pre>
-<h3 id="📌-recuperer-la-liste-des-valeurs-dictionnaire">📌 Recuperer la liste des valeurs (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-v <span class="token operator">=</span> car<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token comment"># ["Ford","Mustang","1969"]</span>
-
+<h3 id="%F0%9F%93%8C-recuperer-la-liste-des-valeurs-dictionnaire">📌 Recuperer la liste des valeurs (dictionnaire)</h3>
+<pre><code class="lang-python">v = car.values()
+print(v) # [&quot;Ford&quot;,&quot;Mustang&quot;,&quot;1969&quot;]
 </code></pre>
-<h3 id="📌-modifier-une-valeur-dictionnaire">📌 Modifier une valeur (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car <span class="token operator">=</span> <span class="token punctuation">{</span>
-
-<span class="token string">"brand"</span><span class="token punctuation">:</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span>
-
-<span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span>
-
-<span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">1964</span>
-
-<span class="token punctuation">}</span>
-
-car<span class="token punctuation">[</span><span class="token string">"brand"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Mitsubichi"</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># ["Mitsubichi","Mustang","1969"]</span>
-
+<h3 id="%F0%9F%93%8C-modifier-une-valeur-dictionnaire">📌 Modifier une valeur (dictionnaire)</h3>
+<pre><code class="lang-python">car = {
+    &quot;brand&quot;: &quot;Ford&quot;,
+    &quot;model&quot;: &quot;Mustang&quot;,
+    &quot;year&quot;: 1964
+}
+car[&quot;brand&quot;] = &quot;Mitsubichi&quot;
+print(car.values()) # [&quot;Mitsubichi&quot;,&quot;Mustang&quot;,&quot;1969&quot;]
 </code></pre>
-<h3 id="📌-modifier-plusieurs-valeurs-en-une-fois-dictionnaire">📌 Modifier plusieurs valeurs en une fois (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car <span class="token operator">=</span> <span class="token punctuation">{</span>
-
-<span class="token string">"brand"</span><span class="token punctuation">:</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span>
-
-<span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span>
-
-<span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">1964</span>
-
-<span class="token punctuation">}</span>
-
-modif <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"brand"</span><span class="token punctuation">:</span><span class="token string">"Mitsubichi"</span><span class="token punctuation">,</span><span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">2020</span><span class="token punctuation">}</span>
-
-car<span class="token punctuation">.</span>update<span class="token punctuation">(</span>modif<span class="token punctuation">)</span>
-
-<span class="token comment"># car.update({"brand":"Mitsubichi","year": 2020})</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># ["Mitsubichi","Mustang","2020"]</span>
-
+<h3 id="%F0%9F%93%8C-modifier-plusieurs-valeurs-en-une-fois-dictionnaire">📌 Modifier plusieurs valeurs en une fois (dictionnaire)</h3>
+<pre><code class="lang-python">car = {
+    &quot;brand&quot;: &quot;Ford&quot;,
+    &quot;model&quot;: &quot;Mustang&quot;,
+    &quot;year&quot;: 1964
+}
+modif = {&quot;brand&quot;:&quot;Mitsubichi&quot;,&quot;year&quot;: 2020}
+car.update(modif)
+# car.update({&quot;brand&quot;:&quot;Mitsubichi&quot;,&quot;year&quot;: 2020})
+print(car.values()) # [&quot;Mitsubichi&quot;,&quot;Mustang&quot;,&quot;2020&quot;]
 </code></pre>
-<h3 id="📌-supprimer-un-element-a-partir-dune-cle-dictionnaire">📌 Supprimer un element a partir d’une cle (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'model'</span><span class="token punctuation">)</span>
-
-<span class="token comment"># { "year": 2020, "brand": "Mitsubichi"}</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-un-element-a-partir-d-une-cle-dictionnaire">📌 Supprimer un element a partir d&#39;une cle (dictionnaire)</h3>
+<pre><code class="lang-python">car.pop(&#39;model&#39;)
+# { &quot;year&quot;: 2020, &quot;brand&quot;: &quot;Mitsubichi&quot;}
 </code></pre>
-<h3 id="📌-supprimer-le-derniere-element-dictionnaire">📌 Supprimer le derniere element (dictionnaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car <span class="token operator">=</span> <span class="token punctuation">{</span>
-
-<span class="token string">"brand"</span><span class="token punctuation">:</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span>
-
-<span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span>
-
-<span class="token string">"year"</span><span class="token punctuation">:</span> <span class="token number">1964</span>
-
-<span class="token punctuation">}</span>
-
-car<span class="token punctuation">.</span>popitem<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment"># { "brand": "Ford", "model": "Mustang" }</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-le-derniere-element-dictionnaire">📌 Supprimer le derniere element (dictionnaire)</h3>
+<pre><code class="lang-python">car = {
+    &quot;brand&quot;: &quot;Ford&quot;,
+    &quot;model&quot;: &quot;Mustang&quot;,
+    &quot;year&quot;: 1964
+}
+car.popitem()
+# { &quot;brand&quot;: &quot;Ford&quot;, &quot;model&quot;: &quot;Mustang&quot; }
 </code></pre>
 <hr>
-<h2 id="🌟-11.-classesobjects--introduction-a-loriente-objet">🌟 11. Classes/Objects | Introduction a l’oriente-objet</h2>
-<h3 id="📌-declaration-dune-classe-prototypage-et-referencement">📌 Declaration d’une classe (prototypage et referencement)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">:</span>
-
-brand <span class="token operator">=</span> <span class="token string">"Toyota"</span>  <span class="token comment"># par defaut la marque sera toyota</span>
-
+<h2 id="-11-classes-objects-introduction-a-l-oriente-objet">🌟 11. Classes/Objects | Introduction a l&#39;oriente-objet</h2>
+<h3 id="%F0%9F%93%8C-declaration-d-une-classe-prototypage-et-referencement">📌 Declaration d&#39;une classe (prototypage et referencement)</h3>
+<pre><code class="lang-python">class Car:
+    brand = &quot;Toyota&quot; # par defaut la marque sera toyota
 </code></pre>
-<h3 id="📌-instanciation-creation">📌 Instanciation, Creation</h3>
-<pre class=" language-python"><code class="prism  language-python">
-car <span class="token operator">=</span> Car<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># instanciation de notre prototype</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>brand<span class="token punctuation">)</span> <span class="token comment"># afficher la marque de notre fameuse voiture creer</span>
-
+<h3 id="%F0%9F%93%8C-instanciation-creation">📌 Instanciation, Creation</h3>
+<pre><code class="lang-python">car = Car() # instanciation de notre prototype
+print(car.brand) # afficher la marque de notre fameuse voiture creer
 </code></pre>
-<h3 id="📌-constructeur-def-initself...">📌 Constructeur: def <strong>init</strong>(self,…):</h3>
-<p>est la pour construire l’objet, de maniere individuel</p>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">:</span>
+<h3 id="%F0%9F%93%8C-constructeur-def-init-self">📌 Constructeur: def <strong>init</strong>(self,...):</h3>
+<p>est la pour construire l&#39;objet, de maniere individuel</p>
+<pre><code class="lang-python">class Car:
+    id = 0 # par defaut c&#39;est 0
+    brand = &quot;Toyota&quot; # par defaut la marque toyota
 
-<span class="token builtin">id</span> <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment"># par defaut c'est 0</span>
+    # Method, Function
+    def __init__(self, brand, id):
+        self.id = id
+        self.brand = brand
+        print(&#39;Creation de la voiture&#39;)
 
-brand <span class="token operator">=</span> <span class="token string">"Toyota"</span>  <span class="token comment"># par defaut la marque toyota</span>
-
-  
-
-<span class="token comment"># Method, Function</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> brand<span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">=</span> <span class="token builtin">id</span>
-
-self<span class="token punctuation">.</span>brand <span class="token operator">=</span> brand
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Creation de la voiture'</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">setBrand</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> brand<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>brand <span class="token operator">=</span> brand
-
+    def setBrand(self, brand):
+        self.brand = brand
 </code></pre>
-<h3 id="📌-identite-de-lobjet-def-strself...">📌 Identite de l’objet: def <strong>str</strong>(self,…):</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">:</span>
+<h3 id="%F0%9F%93%8C-identite-de-l-objet-def-str-self">📌 Identite de l&#39;objet: def <strong>str</strong>(self,...):</h3>
+<pre><code class="lang-python">class Car:
+    id = 0 # par defaut c&#39;est 0
+    brand = &quot;Toyota&quot; # par defaut la marque toyota
+    km = 0
 
-<span class="token builtin">id</span> <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment"># par defaut c'est 0</span>
+    # Method, Function
+    def __init__(self, brand, id):
+        self.id = id
+        self.brand = brand
+        print(&#39;Creation de la voiture&#39;)
 
-brand <span class="token operator">=</span> <span class="token string">"Toyota"</span>  <span class="token comment"># par defaut la marque toyota</span>
+    def __str__(self):
+        print(f&quot;Je suis une voiture de type {self.brand} numero #{self.id}&quot;)
 
-km <span class="token operator">=</span> <span class="token number">0</span>
-
-  
-
-<span class="token comment"># Method, Function</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> brand<span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">=</span> <span class="token builtin">id</span>
-
-self<span class="token punctuation">.</span>brand <span class="token operator">=</span> brand
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Creation de la voiture'</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Je suis une voiture de type {self.brand} numero #{self.id}"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">drive</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>km<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>km <span class="token operator">=</span> self<span class="token punctuation">.</span>km <span class="token operator">+</span> km
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Vous avez roulez {self.km}km."</span><span class="token punctuation">)</span>
-
+    def drive(self,km):
+        self.km = self.km + km
+        print(f&quot;Vous avez roulez {self.km}km.&quot;)
 </code></pre>
-<h3 id="📌exercice">📌Exercice</h3>
+<h3 id="%F0%9F%93%8Cexercice">📌Exercice</h3>
 <h3 id="creer-une-personne">Creer une personne:</h3>
-<ul>
-<li>
-<p>name</p>
-</li>
-<li>
-<p>age</p>
-</li>
-<li>
-<p>une fonction qui presente la personne</p>
-</li>
-<li>
-<p>une fonction qui permet a la personne d’apprendre -&gt; apprendre(self,study)</p>
-</li>
-<li>
-<p>on accumule les connaissance, ex:</p>
-</li>
-</ul>
-<p>zeev.apprend(“Violon”)</p>
-<p>zeev.apprend(“Piloter un avion”)</p>
-<ul>
-<li>une fonction qui affiche tout ce qu’elle a etudier</li>
-</ul>
-<p>zeev.aAppris() # Violon</p>
-<h1 id="piloter-un-avion">Piloter un avion</h1>
-<p><strong>Correction</strong></p>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+<pre><code>-  name
+-  age
+-  une fonction qui presente la personne
+-  une fonction qui permet a la personne d&#39;apprendre -&gt; apprendre(self,study)
+    - on accumule les connaissance, ex:
+        zeev.apprend(&quot;Violon&quot;)
+        zeev.apprend(&quot;Piloter un avion&quot;)
+-  une fonction qui affiche tout ce qu&#39;elle a etudier
+        zeev.aAppris()  # Violon
+                        # Piloter un avion
+</code></pre><p><strong>Correction</strong></p>
+<pre><code class="lang-python">class Person:
 
-  
+    # functions
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.matters = []
+        print(f&quot;{name} vient de naitre, mais il a quand meme {age} ans&quot;)
 
-<span class="token comment"># functions</span>
+    def greet(self):
+        print(f&quot;Je m&#39;appel {self.name}, et j&#39;ai {self.age} ans.&quot;)
 
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    def learned(self, matter):
+        self.matters.append(matter)
+        print(f&quot;{self.name} a appris {matter}&quot;)
 
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
-
-self<span class="token punctuation">.</span>matters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{name} vient de naitre, mais il a quand meme {age} ans"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Je m'appel {self.name}, et j'ai {self.age} ans."</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">learned</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> matter<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>matters<span class="token punctuation">.</span>append<span class="token punctuation">(</span>matter<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{self.name} a appris {matter}"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">have_learned</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>matters<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-
-<span class="token keyword">for</span> m <span class="token keyword">in</span>  self<span class="token punctuation">.</span>matters<span class="token punctuation">:</span> <span class="token comment"># foreach</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"\t{m}"</span><span class="token punctuation">)</span>
-
+    def have_learned(self):
+        if len(self.matters) &gt; 0:
+            for m in self.matters: # foreach
+                print(f&quot;\t{m}&quot;)
 </code></pre>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token comment"># implementation</span>
-
-zeev <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"Zeev"</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span>
-
-zeev<span class="token punctuation">.</span>greet<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-zeev<span class="token punctuation">.</span>learned<span class="token punctuation">(</span><span class="token string">"HTML"</span><span class="token punctuation">)</span>
-
-zeev<span class="token punctuation">.</span>learned<span class="token punctuation">(</span><span class="token string">"CSS"</span><span class="token punctuation">)</span>
-
-zeev<span class="token punctuation">.</span>learned<span class="token punctuation">(</span><span class="token string">"Javascript"</span><span class="token punctuation">)</span>
-
-zeev<span class="token punctuation">.</span>have_learned<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># affiche tout ce qu'il a etudier</span>
-
+<pre><code class="lang-python"># implementation
+zeev = Person(&quot;Zeev&quot;,30)
+zeev.greet()
+zeev.learned(&quot;HTML&quot;)
+zeev.learned(&quot;CSS&quot;)
+zeev.learned(&quot;Javascript&quot;)
+zeev.have_learned() # affiche tout ce qu&#39;il a etudier
 </code></pre>
-<h3 id="📌-supprimer-une-propriete-ou-un-objet">📌 Supprimer une propriete ou un objet</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">del</span> zeev<span class="token punctuation">.</span>age <span class="token comment"># on libere de la memoire</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>zeev<span class="token punctuation">.</span>age<span class="token punctuation">)</span> <span class="token comment"># age non defini</span>
-
+<h3 id="%F0%9F%93%8C-supprimer-une-propriete-ou-un-objet">📌 Supprimer une propriete ou un objet</h3>
+<pre><code class="lang-python">del zeev.age # on libere de la memoire
+print(zeev.age) # age non defini
 </code></pre>
 <ul>
-<li>
-<p>On peut supprimer une instance</p>
-</li>
-<li>
-<p>petit rappel une instance c’est:</p>
-</li>
-<li>
-<pre class=" language-python"><code class="prism  language-python">
+<li>On peut supprimer une instance<ul>
+<li>petit rappel une instance c&#39;est:<ul>
+<li><pre><code class="lang-python">  dark_vador = Person(&quot;Dark Vador&quot;,30) # creer une instance
 </code></pre>
-</li>
-</ul>
-<p>dark_vador = Person(“Dark Vador”,30) # creer une instance</p>
+-<code>python
+  del dark_vador # on supprime dark vador (merci luke)</code></li></ul>
+</li></ul>
+</li></ul>
+<h3 id="%F0%9F%93%8C-les-3-principes-en-oriente-objet-l-encapsulation-l-heritage-et-le-polymorphisme">📌 Les 3 principes en Oriente-Objet: L&#39;encapsulation, l&#39;heritage et le polymorphisme</h3>
+<h3 id="%F0%9F%93%8C-getter-setter-encapsulation-sorte-d-intermediaire">📌 Getter / Setter: encapsulation (sorte d&#39;intermediaire)</h3>
+<pre><code class="lang-python">    class Person:
+        def __init__(self,name):
+            self.name = name
+
+        def setName(self,name):
+            self.name = name
+
+        def getName(self):
+            return self.name
+
+# implementation
+dark_miaul = Person(&quot;Luke&quot;)
+print(dark_miaul.getName()) # Luke
+
+dark_miaul.setName(&quot;Dark Miaul&quot;)
+print(dark_miaul.getName()) # Dark Miaul
+</code></pre>
+<ul>
+<li><p>use case: valider des donnees selon des criteres
+```python
+  class Person:</p>
+<pre><code>  def __init__(self,name):
+      self.name = name
+
+  def setName(self,name):
+      if len(name) &lt; 9:
+          self.name = name
+      else:
+          print(&quot;ton nom a plus de 8 caractere, trop long!&quot;)
+
+  def getName(self):
+      return self.name
+</code></pre></li></ul>
+<h1 id="implementation">implementation</h1>
+<p>dark_miaul = Person(&quot;Luke&quot;)
+print(dark_miaul.getName()) # Luke</p>
+<p>dark_miaul.setName(&quot;DarkMiaul&quot;) # affiche une erreur: 9 caracteres trop long
+dark_miaul.setName(&quot;DarkMiol&quot;) # affiche une erreur: 9 caracteres trop long
+print(dark_miaul.getName()) # DarkMiol</p>
 <pre><code>
--```python
+### 📌 Heritage
+L&#39;heritage permet de partager les elements d&#39;un ensemble dans un autre:
+- Une personne a un nom
+- Un etudiant est une personne, donc elle possedera un nom
+- On aura pas besoin de creer le nom il est automatiquement appeler sur la classe superieur
 
-del dark_vador # on supprime dark vador (merci luke)
+```python
+class Person:
+    def __init__(self,name):
+        self.name = name
 
+    def setName(self,name):
+        if len(name) &lt; 9:
+            self.name = name
+        else:
+            print(&quot;ton nom a plus de 8 caractere, trop long!&quot;)
+
+    def getName(self):
+        return self.name
+
+
+class Student(Person):
+    pass
+</code></pre><ul>
+<li>autre maniere d&#39;herite et d&#39;avoir des propriete et fonctions qui ne sont pas dans la class Person:</li></ul>
+<pre><code class="lang-python">class Person:
+    def __init__(self,name):
+        self.name = name
+
+    def setName(self,name):
+        if len(name) &lt; 9:
+            self.name = name
+        else:
+            print(&quot;ton nom a plus de 8 caractere, trop long!&quot;)
+
+    def getName(self):
+        return self.name
+
+class Student(Person):
+    # la propriete school_name est defini et VISIBLE que sur l&#39;objet Student. (pas la class PERSON 😡)
+
+    def __init__(self,name,age,school_name):
+        super().__init__(name,age)
+        self.school_name
+
+    def get_school_name(self):
+        return self.school_name
+
+    def set_school_name(self, school_name):
+        self.school_name = school_name
+
+    def advantage(self):
+        print(&quot;Je suis une fonction qui n&#39;existe pas dans l&#39;ensemble(class) Person&quot;)
 </code></pre>
-<h3 id="📌-les-3-principes-en-oriente-objet-lencapsulation-lheritage-et-le-polymorphisme">📌 Les 3 principes en Oriente-Objet: L’encapsulation, l’heritage et le polymorphisme</h3>
-<h3 id="📌-getter--setter-encapsulation-sorte-dintermediaire">📌 Getter / Setter: encapsulation (sorte d’intermediaire)</h3>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+<h3 id="%F0%9F%93%8C-polymorphisme">📌 Polymorphisme</h3>
+<ul>
+<li>un Vehicule:<ul>
+<li>Bus</li><li>Moto</li><li>Voiture</li></ul>
+</li></ul>
+<pre><code class="lang-python">class Vehicle:
+    def __init__(self,wheels,motor,fuel):
+        self.wheels = wheels
+        self.motor = motor
+        self.fuel = fuel
+    def show(self):
+        print(f&quot;vehicle:\nw:{self.wheels} \nm:{self.motor} \nf:{self.fuel}&quot;)
+    def drive(self):
+        print(&quot;Je roule en vehicle&quot;)
 
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+class Bus(Vehicle):
+    def __init__(self, name, has_microphone):
+        self.has_microphone = has_microphone
+        super().__init__(8,&quot;essence&quot;,&quot;super&quot;)
+        self.name = name
+        print(f&quot;{self.name}: {self.wheels}&quot;)
 
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+class Moto(Vehicle):
+    def __init__(self,wheels,name,has_top_case):
+        self.has_top_case = has_top_case
+        super().__init__(wheels,&quot;GP&quot;,&quot;95&quot;)
+        self.name = name
+        print(f&quot;{self.name}: {self.wheels}&quot;)
+    def drive(self):
+        super().drive()
+        print(&quot;Je roule en moto&quot;)
 
-<span class="token keyword">def</span> <span class="token function">setName</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+class Car(Vehicle):
+    def __init__(self,name):
+        super().__init__(4,&quot;battery&quot;,&quot;electric&quot;)
+        self.name = name
+        print(f&quot;{self.name}: {self.wheels}&quot;)
+    def drive(self):
+        print(&quot;Je roule en voiture&quot;)
 
-  
+toyota = Car(&#39;Toyota&#39;)
+bus_magic = Bus(&#39;Le bus magique&#39;, True)
+moto = Moto(2,&#39;Harley Davidson&#39;, True)
 
-<span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">return</span>  self<span class="token punctuation">.</span>name
-
-  
-
-<span class="token comment"># implementation</span>
-
-dark_miaul <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"Luke"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>dark_miaul<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Luke</span>
-
-  
-
-dark_miaul<span class="token punctuation">.</span>setName<span class="token punctuation">(</span><span class="token string">"Dark Miaul"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>dark_miaul<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Dark Miaul</span>
-
+for v in (toyota, bus_magic, moto):
+    v.show()
+    v.drive()
 </code></pre>
 <ul>
-<li>use case: valider des donnees selon des criteres</li>
-</ul>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">def</span> <span class="token function">setName</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ton nom a plus de 8 caractere, trop long!"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">return</span>  self<span class="token punctuation">.</span>name
-
-  
-
-<span class="token comment"># implementation</span>
-
-dark_miaul <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"Luke"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>dark_miaul<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Luke</span>
-
-  
-
-dark_miaul<span class="token punctuation">.</span>setName<span class="token punctuation">(</span><span class="token string">"DarkMiaul"</span><span class="token punctuation">)</span> <span class="token comment"># affiche une erreur: 9 caracteres trop long</span>
-
-dark_miaul<span class="token punctuation">.</span>setName<span class="token punctuation">(</span><span class="token string">"DarkMiol"</span><span class="token punctuation">)</span> <span class="token comment"># affiche une erreur: 9 caracteres trop long</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>dark_miaul<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># DarkMiol</span>
-
+<li>lorsque l&#39;enfant possede la methode drive(), on dit qu&#39;elle override, (= elle n&#39;execute pas la methode parente).</li></ul>
+<hr>
+<h2 id="-12-gestion-des-fichiers-notion-de-persistance-de-donnee">🌟 12. Gestion des fichiers - Notion de persistance de donnee.</h2>
+<h3 id="%F0%9F%93%8C-lecture-d-un-fichier">📌 Lecture d&#39;un fichier</h3>
+<p>Lire tout le fichier :</p>
+<pre><code class="lang-python">file = open(&#39;names.txt&#39;)
+whole_file = file.read()
 </code></pre>
-<h3 id="📌-heritage">📌 Heritage</h3>
-<p>L’heritage permet de partager les elements d’un ensemble dans un autre:</p>
-<ul>
-<li>
-<p>Une personne a un nom</p>
-</li>
-<li>
-<p>Un etudiant est une personne, donc elle possedera un nom</p>
-</li>
-<li>
-<p>On aura pas besoin de creer le nom il est automatiquement appeler sur la classe superieur</p>
-</li>
-</ul>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">def</span> <span class="token function">setName</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ton nom a plus de 8 caractere, trop long!"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">return</span>  self<span class="token punctuation">.</span>name
-
-  
-  
-
-<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">pass</span>
-
+<p>Lire ligne par ligne :</p>
+<pre><code class="lang-python">file = open(&#39;names.txt&#39;)
+line = file.readline() # Affiche la première ligne
+line = file.readline() # Affiche la deuxième ligne
 </code></pre>
-<ul>
-<li>autre maniere d’herite et d’avoir des propriete et fonctions qui ne sont pas dans la class Person:</li>
-</ul>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">def</span> <span class="token function">setName</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ton nom a plus de 8 caractere, trop long!"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">return</span>  self<span class="token punctuation">.</span>name
-
-  
-
-<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token comment"># la propriete school_name est defini et VISIBLE que sur l'objet Student. (pas la class PERSON 😡)</span>
-
-  
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">,</span>school_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>school_name
-
-<span class="token keyword">def</span> <span class="token function">get_school_name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">return</span>  self<span class="token punctuation">.</span>school_name
-
-  
-
-<span class="token keyword">def</span> <span class="token function">set_school_name</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> school_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>school_name <span class="token operator">=</span> school_name
-
-  
-
-<span class="token keyword">def</span> <span class="token function">advantage</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Je suis une fonction qui n'existe pas dans l'ensemble(class) Person"</span><span class="token punctuation">)</span>
-
+<p>Traiter le document ligne par ligne :</p>
+<pre><code class="lang-python">file = open(&#39;names.txt&#39;, &#39;r&#39;)
+while True:
+    line = file.readline()
+    if not line:
+        break
+    print(line)
 </code></pre>
-<h3 id="📌-polymorphisme">📌 Polymorphisme</h3>
+<h3 id="%F0%9F%93%8C-%C3%A9criture-dans-un-fichier">📌 Écriture dans un fichier</h3>
+<p>Rajouter des noms dans un fichier :</p>
+<pre><code class="lang-python">f = open(&#39;names.txt&#39;, &#39;a&#39;) # &quot;a&quot; pour ajouter à la fin du fichier
+while True:
+    name = input(&#39;Entrez un nom: &#39;)
+    if len(name) == 0:
+        break
+    f.write(name)
+f.close() # Ferme le flux
+</code></pre>
+<p>Supprimer tout le contenu d&#39;un fichier :</p>
+<pre><code class="lang-python">f = open(&#39;names.txt&#39;, &#39;w&#39;) # &#39;w&#39; pour écraser le contenu
+f.write(&#39;&#39;)
+f.close()
+</code></pre>
+<p>Créer un nouveau fichier vierge :</p>
+<pre><code class="lang-python">name = input(&#39;Entrez un nom de fichier: &#39;)
+f = open(f&#39;{name}.txt&#39;, &#39;x&#39;)
+f.close()
+</code></pre>
+<p>Créer en masse des fichiers :</p>
+<pre><code class="lang-python">for filename in [&#39;html&#39;, &#39;css&#39;, &#39;js&#39;]:
+    open(filename + &quot;.txt&quot;, &quot;x&quot;) # Crée un fichier selon la variable
+</code></pre>
+<h3 id="%F0%9F%93%8C-suppression-d-un-fichier">📌 Suppression d&#39;un fichier</h3>
+<p>Supprimer un fichier :</p>
+<pre><code class="lang-python">import os
+if os.path.exists(&quot;fichier.txt&quot;):
+    os.remove(&quot;fichier.txt&quot;)
+else:
+    print(&quot;Le fichier n&#39;existe pas.&quot;)
+</code></pre>
+<hr>
+<h2 id="-13-json-javascript-object-notation">🌟 13. JSON (JavaScript Object Notation)</h2>
+<p>JSON est un format léger d&#39;échange de données, facile à lire et à écrire pour les humains, ainsi qu&#39;à analyser et générer pour les machines.</p>
+<h3 id="%F0%9F%93%8C-structure-json">📌 Structure JSON</h3>
+<p>Un fichier JSON est constitué de paires clé-valeur, similaires aux dictionnaires Python :</p>
+<pre><code class="lang-json">{
+    &quot;nom&quot;: &quot;Alice&quot;,
+    &quot;age&quot;: 25,
+    &quot;langages&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;]
+}
+</code></pre>
+<h3 id="%F0%9F%93%8C-lire-un-fichier-json">📌 Lire un fichier JSON</h3>
+<p>Pour lire un fichier JSON en Python, utilisez la bibliothèque intégrée <code>json</code> :</p>
+<pre><code class="lang-python">import json
+
+# Lire le contenu du fichier JSON
+with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+    data = json.load(file)  # Charge le JSON en un dictionnaire Python
+    print(data)
+</code></pre>
+<h3 id="%F0%9F%93%8C-%C3%A9crire-dans-un-fichier-json">📌 Écrire dans un fichier JSON</h3>
+<p>Pour écrire des données dans un fichier JSON :</p>
+<pre><code class="lang-python">import json
+
+# Exemple de données
+data = {
+    &quot;nom&quot;: &quot;Alice&quot;,
+    &quot;age&quot;: 25,
+    &quot;langages&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;]
+}
+
+# Écrire dans un fichier JSON
+with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+    json.dump(data, file, indent=4)  # Ajout d&#39;une indentation pour une meilleure lisibilité
+</code></pre>
+<h3 id="%F0%9F%93%8C-modifier-un-fichier-json">📌 Modifier un fichier JSON</h3>
+<p>Pour mettre à jour les données existantes dans un fichier JSON :</p>
+<pre><code class="lang-python">import json
+
+# Charger les données existantes
+with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+    data = json.load(file)
+
+# Modifier les données
+data[&quot;age&quot;] = 26
+
+# Réécrire les données dans le fichier
+with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+    json.dump(data, file, indent=4)
+</code></pre>
+<h3 id="%F0%9F%93%8C-gestion-json-avec-le-file-manager">📌 Gestion JSON avec le File Manager</h3>
+<p>Voici comment combiner la manipulation des fichiers et le JSON :</p>
 <ul>
-<li>
-<p>un Vehicule:</p>
-</li>
-<li>
-<p>Bus</p>
-</li>
-<li>
-<p>Moto</p>
-</li>
-<li>
-<p>Voiture</p>
-</li>
-</ul>
-<pre class=" language-python"><code class="prism  language-python">
-<span class="token keyword">class</span> <span class="token class-name">Vehicle</span><span class="token punctuation">:</span>
+<li><strong>Créer un fichier JSON vide :</strong></li></ul>
+<pre><code class="lang-python">import json
 
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>wheels<span class="token punctuation">,</span>motor<span class="token punctuation">,</span>fuel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+# Initialiser des données vides
+data = {}
 
-self<span class="token punctuation">.</span>wheels <span class="token operator">=</span> wheels
-
-self<span class="token punctuation">.</span>motor <span class="token operator">=</span> motor
-
-self<span class="token punctuation">.</span>fuel <span class="token operator">=</span> fuel
-
-<span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"vehicle:\nw:{self.wheels}  \nm:{self.motor}  \nf:{self.fuel}"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">drive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Je roule en vehicle"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">class</span> <span class="token class-name">Bus</span><span class="token punctuation">(</span>Vehicle<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> has_microphone<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>has_microphone <span class="token operator">=</span> has_microphone
-
-<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">"essence"</span><span class="token punctuation">,</span><span class="token string">"super"</span><span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{self.name}: {self.wheels}"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Moto</span><span class="token punctuation">(</span>Vehicle<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>wheels<span class="token punctuation">,</span>name<span class="token punctuation">,</span>has_top_case<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-self<span class="token punctuation">.</span>has_top_case <span class="token operator">=</span> has_top_case
-
-<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>wheels<span class="token punctuation">,</span><span class="token string">"GP"</span><span class="token punctuation">,</span><span class="token string">"95"</span><span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{self.name}: {self.wheels}"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">drive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>drive<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Je roule en moto"</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">(</span>Vehicle<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">"battery"</span><span class="token punctuation">,</span><span class="token string">"electric"</span><span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{self.name}: {self.wheels}"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">drive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Je roule en voiture"</span><span class="token punctuation">)</span>
-
-toyota <span class="token operator">=</span> Car<span class="token punctuation">(</span><span class="token string">'Toyota'</span><span class="token punctuation">)</span>
-
-bus_magic <span class="token operator">=</span> Bus<span class="token punctuation">(</span><span class="token string">'Le bus magique'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
-
-moto <span class="token operator">=</span> Moto<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Harley Davidson'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
-
-  
-
-<span class="token keyword">for</span> v <span class="token keyword">in</span> <span class="token punctuation">(</span>toyota<span class="token punctuation">,</span> bus_magic<span class="token punctuation">,</span> moto<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-v<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-v<span class="token punctuation">.</span>drive<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
+# Créer un fichier JSON vide
+with open(&#39;new_file.json&#39;, &#39;w&#39;) as file:
+    json.dump(data, file, indent=4)
 </code></pre>
 <ul>
-<li>lorsque l’enfant possede la methode drive(), on dit qu’elle override, (= elle n’execute pas la methode parente).</li>
-</ul>
-</div>
-</body>
+<li><strong>Ajouter des données à un fichier JSON :</strong></li></ul>
+<pre><code class="lang-python">import json
 
+new_entry = {
+    &quot;nom&quot;: &quot;Bob&quot;,
+    &quot;age&quot;: 30,
+    &quot;langages&quot;: [&quot;Java&quot;, &quot;Go&quot;]
+}
+
+# Charger les données existantes
+with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+    data = json.load(file)
+
+# Ajouter la nouvelle entrée
+if &quot;personnes&quot; not in data:
+    data[&quot;personnes&quot;] = []
+data[&quot;personnes&quot;].append(new_entry)
+
+# Réécrire les données dans le fichier
+with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+    json.dump(data, file, indent=4)
+</code></pre>
+<ul>
+<li><strong>Supprimer une entrée d&#39;un fichier JSON :</strong></li></ul>
+<pre><code class="lang-python">import json
+
+# Charger les données existantes
+with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+    data = json.load(file)
+
+# Suppression basée sur une condition
+if &quot;personnes&quot; in data:
+    data[&quot;personnes&quot;] = [p for p in data[&quot;personnes&quot;] if p[&quot;nom&quot;] != &quot;Bob&quot;]
+
+# Réécrire les données mises à jour
+with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+    json.dump(data, file, indent=4)
+</code></pre>
+<hr>
+<h2 id="-14-gestion-des-exceptions-avec-try-except">🌟 14. Gestion des Exceptions avec <code>try-except</code></h2>
+<p>En Python, la gestion des erreurs est essentielle pour éviter les plantages de programme lorsque des erreurs inattendues surviennent. La structure <code>try-except</code> permet de gérer ces situations de manière propre et contrôlée.</p>
+<h3 id="%F0%9F%93%8C-structure-de-base">📌 Structure de base</h3>
+<pre><code class="lang-python">try:
+    # Code qui pourrait générer une erreur
+    operation = 10 / 0
+except ZeroDivisionError:
+    # Code à exécuter en cas d&#39;erreur
+    print(&quot;Division par zéro interdite !&quot;)
+</code></pre>
+<h3 id="%F0%9F%93%8C-types-d-exceptions-courantes">📌 Types d&#39;Exceptions Courantes</h3>
+<p>Voici quelques types d&#39;exceptions courantes que vous pourriez rencontrer :</p>
+<ul>
+<li><strong><code>ZeroDivisionError</code></strong> : Division par zéro.</li><li><strong><code>ValueError</code></strong> : Erreur de type pour une valeur incorrecte.</li><li><strong><code>FileNotFoundError</code></strong> : Fichier introuvable.</li><li><strong><code>TypeError</code></strong> : Type incorrect utilisé.</li><li><strong><code>IndexError</code></strong> : Indice hors des limites d&#39;une liste.</li><li><strong><code>KeyError</code></strong> : Clé inexistante dans un dictionnaire.</li></ul>
+<h3 id="%F0%9F%93%8C-exemple-avec-plusieurs-exceptions">📌 Exemple avec plusieurs exceptions</h3>
+<pre><code class="lang-python">try:
+    fichier = open(&quot;inexistant.txt&quot;, &quot;r&quot;)
+    contenu = int(fichier.read())
+    print(10 / contenu)
+except FileNotFoundError:
+    print(&quot;Le fichier n&#39;existe pas.&quot;)
+except ValueError:
+    print(&quot;Erreur : Impossible de convertir le contenu en entier.&quot;)
+except ZeroDivisionError:
+    print(&quot;Erreur : Division par zéro détectée.&quot;)
+</code></pre>
+<h3 id="%F0%9F%93%8C-blocs-else-et-finally">📌 Blocs <code>else</code> et <code>finally</code></h3>
+<ul>
+<li><strong><code>else</code></strong> : S&#39;exécute si aucune exception n&#39;est levée.</li><li><strong><code>finally</code></strong> : S&#39;exécute quoi qu&#39;il arrive (utile pour nettoyer les ressources).</li></ul>
+<pre><code class="lang-python">try:
+    fichier = open(&quot;data.txt&quot;, &quot;r&quot;)
+    contenu = fichier.read()
+    print(&quot;Lecture réussie :&quot;, contenu)
+except FileNotFoundError:
+    print(&quot;Erreur : Le fichier est introuvable.&quot;)
+else:
+    print(&quot;Aucune erreur détectée.&quot;)
+finally:
+    print(&quot;Fin de l&#39;exécution.&quot;)
+</code></pre>
+<h3 id="%F0%9F%93%8C-lever-une-exception-personnalis%C3%A9e">📌 Lever une exception personnalisée</h3>
+<p>Vous pouvez lever vos propres exceptions avec l&#39;instruction <code>raise</code> :</p>
+<pre><code class="lang-python">def verifier_age(age):
+    if age &lt; 0:
+        raise ValueError(&quot;L&#39;âge ne peut pas être négatif !&quot;)
+    print(&quot;Âge valide :&quot;, age)
+
+try:
+    verifier_age(-5)
+except ValueError as e:
+    print(&quot;Erreur détectée :&quot;, e)
+</code></pre>
+<h3 id="%F0%9F%93%8C-utilisation-avanc%C3%A9e-capturer-l-exception">📌 Utilisation avancée : Capturer l&#39;exception</h3>
+<p>Vous pouvez capturer l&#39;objet exception pour plus de détails :</p>
+<pre><code class="lang-python">try:
+    resultat = 10 / 0
+except ZeroDivisionError as e:
+    print(f&quot;Erreur capturée : {e}&quot;)
+</code></pre>
+<hr>
+
+        </article>
+    </body>
 </html>
