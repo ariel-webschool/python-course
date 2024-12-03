@@ -1,8 +1,25 @@
+![Image](./image.png)
+
+## 🌟 Table des matières
+
+1. [Les Bases des Fonctions Python](#-1-les-bases-des-fonctions-python)
+2. [Conversion des types (Casting)](#-2-conversion-des-types-casting)
+3. [Variables](#-3-variables)
+4. [Commentaires](#-4-commentaires)
+5. [Conditions (IF/ELSE)](#-5-conditions-ifelse)
+6. [Exercices pratiques](#-6-exercices-pratiques)
+7. [Tableaux (listes)](#-7-tableaux-listes)
+8. [Tuples (listes constantes)](#-8-tuples-listes-constantes)
+9. [Sets (listes sans doublon)](#-9-sets-listes-sans-doublon)
+10. [Dictionaries (liste clé : valeur)](#-10-dictionaries-liste-clé--valeur)
+11. [Classes/Objects | Introduction à l'orienté-objet](#-11-classesobjects--introduction-à-lorienté-objet)
+12. [Gestion des fichiers](#-12-gestion-des-fichiers)
+13. [JSON (JavaScript Object Notation)](#-13-json-javascript-object-notation)
+14. [Gestion des Exceptions avec `try-except`](#-14-gestion-des-exceptions-avec-try-except)
+
 ---
-title: "Cours Python"
-author: "Ariel"
-date: "2024-11-25"
----
+
+
 ## 🌟 1. Les Bases des Fonctions Python
 
 ### 📌 Affichage et interactions utilisateur
@@ -757,4 +774,286 @@ for v in (toyota, bus_magic, moto):
 ```
 
 - lorsque l'enfant possede la methode drive(), on dit qu'elle override, (= elle n'execute pas la methode parente).
+
+
+---
+
+## 🌟 12. Gestion des fichiers - Notion de persistance de donnee.
+
+### 📌 Lecture d'un fichier
+Lire tout le fichier :
+```python
+file = open('names.txt')
+whole_file = file.read()
+```
+
+Lire ligne par ligne :
+```python
+file = open('names.txt')
+line = file.readline() # Affiche la première ligne
+line = file.readline() # Affiche la deuxième ligne
+```
+
+Traiter le document ligne par ligne :
+```python
+file = open('names.txt', 'r')
+while True:
+    line = file.readline()
+    if not line:
+        break
+    print(line)
+```
+
+### 📌 Écriture dans un fichier
+Rajouter des noms dans un fichier :
+```python
+f = open('names.txt', 'a') # "a" pour ajouter à la fin du fichier
+while True:
+    name = input('Entrez un nom: ')
+    if len(name) == 0:
+        break
+    f.write(name)
+f.close() # Ferme le flux
+```
+
+Supprimer tout le contenu d'un fichier :
+```python
+f = open('names.txt', 'w') # 'w' pour écraser le contenu
+f.write('')
+f.close()
+```
+
+Créer un nouveau fichier vierge :
+```python
+name = input('Entrez un nom de fichier: ')
+f = open(f'{name}.txt', 'x')
+f.close()
+```
+
+Créer en masse des fichiers :
+```python
+for filename in ['html', 'css', 'js']:
+    open(filename + ".txt", "x") # Crée un fichier selon la variable
+```
+
+### 📌 Suppression d'un fichier
+Supprimer un fichier :
+```python
+import os
+if os.path.exists("fichier.txt"):
+    os.remove("fichier.txt")
+else:
+    print("Le fichier n'existe pas.")
+```
+
+---
+
+## 🌟 13. JSON (JavaScript Object Notation)
+
+JSON est un format léger d'échange de données, facile à lire et à écrire pour les humains, ainsi qu'à analyser et générer pour les machines.
+
+### 📌 Structure JSON
+Un fichier JSON est constitué de paires clé-valeur, similaires aux dictionnaires Python :
+
+```json
+{
+    "nom": "Alice",
+    "age": 25,
+    "langages": ["Python", "JavaScript"]
+}
+```
+
+### 📌 Lire un fichier JSON
+Pour lire un fichier JSON en Python, utilisez la bibliothèque intégrée `json` :
+
+```python
+import json
+
+# Lire le contenu du fichier JSON
+with open('data.json', 'r') as file:
+    data = json.load(file)  # Charge le JSON en un dictionnaire Python
+    print(data)
+```
+
+### 📌 Écrire dans un fichier JSON
+Pour écrire des données dans un fichier JSON :
+
+```python
+import json
+
+# Exemple de données
+data = {
+    "nom": "Alice",
+    "age": 25,
+    "langages": ["Python", "JavaScript"]
+}
+
+# Écrire dans un fichier JSON
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)  # Ajout d'une indentation pour une meilleure lisibilité
+```
+
+### 📌 Modifier un fichier JSON
+Pour mettre à jour les données existantes dans un fichier JSON :
+
+```python
+import json
+
+# Charger les données existantes
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Modifier les données
+data["age"] = 26
+
+# Réécrire les données dans le fichier
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+### 📌 Gestion JSON avec le File Manager
+Voici comment combiner la manipulation des fichiers et le JSON :
+
+- **Créer un fichier JSON vide :**
+
+```python
+import json
+
+# Initialiser des données vides
+data = {}
+
+# Créer un fichier JSON vide
+with open('new_file.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+- **Ajouter des données à un fichier JSON :**
+
+```python
+import json
+
+new_entry = {
+    "nom": "Bob",
+    "age": 30,
+    "langages": ["Java", "Go"]
+}
+
+# Charger les données existantes
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Ajouter la nouvelle entrée
+if "personnes" not in data:
+    data["personnes"] = []
+data["personnes"].append(new_entry)
+
+# Réécrire les données dans le fichier
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+- **Supprimer une entrée d'un fichier JSON :**
+
+```python
+import json
+
+# Charger les données existantes
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Suppression basée sur une condition
+if "personnes" in data:
+    data["personnes"] = [p for p in data["personnes"] if p["nom"] != "Bob"]
+
+# Réécrire les données mises à jour
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+---
+
+## 🌟 14. Gestion des Exceptions avec `try-except`
+
+En Python, la gestion des erreurs est essentielle pour éviter les plantages de programme lorsque des erreurs inattendues surviennent. La structure `try-except` permet de gérer ces situations de manière propre et contrôlée.
+
+### 📌 Structure de base
+
+```python
+try:
+    # Code qui pourrait générer une erreur
+    operation = 10 / 0
+except ZeroDivisionError:
+    # Code à exécuter en cas d'erreur
+    print("Division par zéro interdite !")
+```
+
+### 📌 Types d'Exceptions Courantes
+Voici quelques types d'exceptions courantes que vous pourriez rencontrer :
+
+- **`ZeroDivisionError`** : Division par zéro.
+- **`ValueError`** : Erreur de type pour une valeur incorrecte.
+- **`FileNotFoundError`** : Fichier introuvable.
+- **`TypeError`** : Type incorrect utilisé.
+- **`IndexError`** : Indice hors des limites d'une liste.
+- **`KeyError`** : Clé inexistante dans un dictionnaire.
+
+### 📌 Exemple avec plusieurs exceptions
+
+```python
+try:
+    fichier = open("inexistant.txt", "r")
+    contenu = int(fichier.read())
+    print(10 / contenu)
+except FileNotFoundError:
+    print("Le fichier n'existe pas.")
+except ValueError:
+    print("Erreur : Impossible de convertir le contenu en entier.")
+except ZeroDivisionError:
+    print("Erreur : Division par zéro détectée.")
+```
+
+### 📌 Blocs `else` et `finally`
+
+- **`else`** : S'exécute si aucune exception n'est levée.
+- **`finally`** : S'exécute quoi qu'il arrive (utile pour nettoyer les ressources).
+
+```python
+try:
+    fichier = open("data.txt", "r")
+    contenu = fichier.read()
+    print("Lecture réussie :", contenu)
+except FileNotFoundError:
+    print("Erreur : Le fichier est introuvable.")
+else:
+    print("Aucune erreur détectée.")
+finally:
+    print("Fin de l'exécution.")
+```
+
+### 📌 Lever une exception personnalisée
+Vous pouvez lever vos propres exceptions avec l'instruction `raise` :
+
+```python
+def verifier_age(age):
+    if age < 0:
+        raise ValueError("L'âge ne peut pas être négatif !")
+    print("Âge valide :", age)
+
+try:
+    verifier_age(-5)
+except ValueError as e:
+    print("Erreur détectée :", e)
+```
+
+### 📌 Utilisation avancée : Capturer l'exception
+Vous pouvez capturer l'objet exception pour plus de détails :
+
+```python
+try:
+    resultat = 10 / 0
+except ZeroDivisionError as e:
+    print(f"Erreur capturée : {e}")
+```
+
+---
 
